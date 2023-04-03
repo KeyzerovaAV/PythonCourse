@@ -5,9 +5,9 @@
 
 from random import randint
 
-list = []
+list_1 = []
 n = int(input("Введите количество элементов в списке: "))
 for i in range(n):
-    list.append(randint(-5, 5))
-print(list)
-print(len(set(list)))
+    list_1.append(randint(-5, 5))
+print(list_1)
+print(len(set(list_1)))
