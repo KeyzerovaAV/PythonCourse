@@ -5,11 +5,11 @@
 
 from random import randint
 
-list = []
+list_1 = []
 n = int(input("Введите число элементов в списке: "))
 k = int(input("Введите число элементов, на которое необходимо сдвинуть последовательность чисел в списке вправо: "))
 for i in range(n):
-    list.append(randint(1, 10))
-print(list)
-k = k % len(list)
-print(list[k:] + list[:k])
+    list_1.append(randint(1, 10))
+print(list_1)
+k = k % len(list_1)
+print(list_1[k:] + list_1[:k])
