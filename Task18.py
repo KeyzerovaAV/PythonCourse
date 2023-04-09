@@ -11,21 +11,18 @@ x = randint(1, 10)
 print(*list_1)
 print(x)
 
-nearest_value_set = set()
+nearest_values_set = set()
 nearest_value = list_1[0]
 min_difference = abs(x - list_1[0])
-if min_difference == 0:
-    min_difference += 1
-
-for number in list_1:
-    current_difference = abs(x - number)
-    if current_difference < min_difference and current_difference != 0:
+for i in range(n):
+    current_difference = abs(x - list_1[i])
+    if current_difference < min_difference:
         min_difference = current_difference
-        nearest_value = number
-        nearest_value_set.clear()
-        nearest_value_set.add(nearest_value)
-    elif current_difference == min_difference and current_difference != 0:
-        nearest_value_set.add(number)
+        nearest_value = list_1[i]
+        nearest_values_set.clear()
+        nearest_values_set.add(nearest_value)
+    elif current_difference == min_difference:
+        nearest_values_set.add(list_1[i])
 
-print(f"Самые близкие (но не равные) по величине элементы к числу {x}:")
-print(*nearest_value_set)
+print(f"Самые близкие по величине элементы к числу {x}:")
+print(*nearest_values_set)
