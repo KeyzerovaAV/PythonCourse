@@ -4,10 +4,7 @@
 """
 
 def get_index_list(array, minimum, maximum):
-    index_list = []
-    for i in range(len(array)):
-        if maximum >= array[i] >= minimum:
-            index_list.append(i)
+    index_list = [i for i in range(len(array)) if maximum >= array[i] >= minimum]
     return index_list
 
 my_array = [int(i) for i in input().split()]
