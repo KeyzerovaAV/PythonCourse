@@ -6,11 +6,22 @@
 Стихотворение Винни-Пух вбивает в программу с клавиатуры. 
 В ответе напишите “Парам пам-пам”, если с ритмом все в порядке, и “Пам парам”, если с ритмом все не в порядке.
 """
-   
-poem = input("Напишите стихотворение из слов с гласной А: ")
-phrases_list = poem.lower().split()
-syllables_numbers_list = [sum(map(phrase.count, 'а')) for phrase in phrases_list]
-if len(set(syllables_numbers_list)) == 1:
-    print("Парам пам-пам")
+
+def count_vowels(word):
+    vowels_number = 0
+    for letter in word:
+        if letter in russian_vowels:
+            vowels_number += 1
+    return vowels_number
+
+def check_rhythm(text):
+    words_list = text.lower().split()
+    syllables_numbers_list = map(count_vowels, words_list)
+    return syllables_numbers_list
+
+russian_vowels = {'а', 'о', 'у', 'э', 'ы', 'я', 'ё', 'е', 'ю', 'и'}
+poem = input("Напишите стихотворение: ")
+if len(set(check_rhythm(poem))) == 1:
+    print("Парам пам-пам!!!")
 else:
-    print("Пам парам")
+    print("Пам парам(((")
