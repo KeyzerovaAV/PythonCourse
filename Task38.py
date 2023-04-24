@@ -18,10 +18,14 @@ def writedown_person():
 
 def search_person():
     parameter = input("Введите параметр поиска: ")
+    search_bool = False
     with open("phonebook.txt", "r", encoding = "utf-8") as data:
         for line in data:
             if parameter in line:
                 print(line)
+                search_bool = True
+        if search_bool == False:
+            print("Такой записи нет")
 
 def print_phonebook():
     with open("phonebook.txt", "r", encoding = "utf-8") as data:
@@ -35,7 +39,6 @@ def load_path():
             for line in new_data:
                 if line not in data:
                     data.write(line)
-            data.write("\n")
 
 print("""1 - добавление персоны в справочник,
 2 - поиск персоны в справочнике,
@@ -52,4 +55,4 @@ elif request == 3:
 elif request == 4:
     load_path()
 else:
-    print("Нет такого запроса")
+    print("Такого запроса нет")
