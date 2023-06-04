@@ -35,7 +35,7 @@ def print_phonebook():
 
 def load_path():
     new_phonebook = input("Введите путь нового справочника: ")
-    with open("phonebook.txt", "a+", encoding="utf-8") as data:
+    with open("phonebook.txt", "r+", encoding="utf-8") as data:
         with open(new_phonebook, "r", encoding = "utf-8") as new_data:
             for line in new_data:
                 if line not in data:
